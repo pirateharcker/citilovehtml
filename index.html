@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>CitYLove</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('assets/images/ggonn.gif') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+        }
+
+        .age-check {
+            display: none;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            font-family: Arial, sans-serif;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background: linear-gradient(to right, #0000FF, #800080);
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .txt{
+            background: linear-gradient(to right, #0000FF, #800080);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="age-check" id="ageCheck">
+        <h2 class="txt">Avez-vous plus de 18 ans ?</h2>
+        <button class="btn" onclick="handleResponse(true)">Oui</button>
+        <button class="btn" onclick="handleResponse(false)">Non</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const ageCheck = document.getElementById("ageCheck");
+            ageCheck.style.display = "block";
+        });
+
+        function handleResponse(isAdult) {
+            if (isAdult) {
+                // Rediriger ou afficher le contenu
+                window.location.href = "cconfidentialy.html";
+            } else {
+                // Rediriger ou masquer le contenu
+                window.location.href = "acceuil.html";
+            }
+        }
+    </script>
+</body>
+</html>
