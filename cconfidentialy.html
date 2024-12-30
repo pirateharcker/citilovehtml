@@ -69,20 +69,30 @@
             background: linear-gradient(to right, #0000FF, #800080);
             -webkit-background-clip: text;
             color: transparent;
-        }
-
-
-        
+        }        
         .btn:hover {
             background-color: #0056b3;
         }
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      color: red;
+      opacity: 0;
+      animation: sparkle 1.5s infinite;
+    }
+
+    @keyframes sparkle {
+      0% { opacity: 0; }
+      50% { opacity: 1; transform: translateY(-20px); }
+      100% { opacity: 0; }
+    }
     </style>
 </head>
 <body>
     <div class="age-check" id="ageCheck">
         <h2 class="txt">
             <i class="fas fa-fire fire-icon"></i>
-            Des meufs CHAUDES... Pas d'hypocrisie, inbox Me.
+            Des meufs chaudes disponibles pour vos plans culs. Pas d'hypocrisie, inbox Me.
             <i class="fas fa-fire fire-icon"></i>
         </h2>
         <button class="btn" onclick="handleResponse(true)">Inbox</button>
@@ -99,9 +109,24 @@
             if (isAdult) {
                 window.location.href = "listespartenaires.html";
             } else {
-                window.location.href = "rencontres.html";
+                window.location.href = "inscription.html";
             }
         }
+        // Créer des étoiles scintillantes
+    function createHearts() {
+      const heartsCount = 25; // Nombre de cœurs
+      for (let i = 0; i < heartsCount; i++) {
+        let heart = document.createElement('span');
+        heart.className = 'heart';
+        heart.innerHTML = '❤️'; // Icône du cœur
+        heart.style.left = `${Math.random() * 100}%`;
+        heart.style.top = `${Math.random() * 100}%`;
+        heart.style.animationDelay = `${Math.random() * 2}s`;
+        document.body.appendChild(heart);
+      }
+    }
+
+    createHearts();
     </script>
 </body>
 </html>
